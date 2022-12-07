@@ -12,9 +12,11 @@ using Parameters
 using RecipesBase
 using Requires
 using ValueShapes
+using SparseArrays
 
 include("datatypes.jl")
 include("EFTfitterModel.jl")
+include("EFTfitterWeights.jl")
 include("EFTfitterDensity.jl")
 include("ranking/ranking.jl")
 include("plotting/plotting.jl")

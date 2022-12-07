@@ -13,7 +13,7 @@ struct EFTfitterDensity <: AbstractDensity
     observable_functions::Vector{Function}
     observable_mins::Vector{Float64}
     observable_maxs::Vector{Float64}
-    invcov::Array{Float64, 2}
+    invcov::SparseMatrixCSC#Array{Float64, 2}
     check_bounds::Bool
 end
 
@@ -40,7 +40,7 @@ function EFTfitterDensity(m::EFTfitterModel)
     check_bounds = any([bu, bl])
 
 
-    invcov = inv(get_total_covariance(m))
+    invcov = sparse(inv(get_total_covariance(m)))
 
     return EFTfitterDensity(
             measured_values,

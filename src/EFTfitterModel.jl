@@ -410,7 +410,7 @@ end
 
 
 function add_nuisance_parameters(
-    parameters::NamedTupleDist, 
+    parameters::Any,#NamedTupleDist, 
     nuisances_nt::NamedTuple{<:Any, <:Tuple{Vararg{NuisanceCorrelation}}}
 )
     param_keys = [keys(parameters)...,  keys(nuisances_nt)...]
